@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Unison.LibraryManagement.Api/Unison.LibraryManagement.Api.csproj" Id="41b6c497-2857-41c2-9c05-abba8f13718d" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
