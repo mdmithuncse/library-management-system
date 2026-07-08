@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Unison.LibraryManagement.Api\Unison.LibraryManagement.Api.csproj" />
+    <ProjectReference Include="..\..\src\Unison.LibraryManagement.Api\Unison.LibraryManagement.Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>

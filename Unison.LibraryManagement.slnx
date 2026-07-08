@@ -6,7 +6,7 @@
     <Project Path="src/Unison.LibraryManagement.Infrastructure/Unison.LibraryManagement.Infrastructure.csproj" Id="c01b364c-3a31-4449-80c7-7d434bde5f56" />
   </Folder>
   <Folder Name="/tests/">
-    <Project Path="src/Unison.LibraryManagement.IntegrationTests/Unison.LibraryManagement.IntegrationTests.csproj" Id="bbf20cdb-485e-48bb-9ab1-b6b8e12a6599" />
     <Project Path="tests/Unison.LibraryManagement.Application.Tests/Unison.LibraryManagement.Application.Tests.csproj" Id="864a53a1-0c29-4c88-9e6a-359f0500cafd" />
+    <Project Path="tests/Unison.LibraryManagement.IntegrationTests/Unison.LibraryManagement.IntegrationTests.csproj" Id="f329d3fe-ec31-4065-af2e-9bec91c223d1" />
   </Folder>
 </Solution>
