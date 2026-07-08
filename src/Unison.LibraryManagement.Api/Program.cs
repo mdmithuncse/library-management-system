@@ -42,12 +42,30 @@ builder.Services.AddDbContext<Unison.LibraryManagement.Infrastructure.Persistenc
 builder.Services.AddScoped<Unison.LibraryManagement.Domain.Repositories.IUserRepository, Unison.LibraryManagement.Infrastructure.Repositories.EfUserRepository>();
 builder.Services.AddScoped<Unison.LibraryManagement.Domain.Repositories.IRoleRepository, Unison.LibraryManagement.Infrastructure.Repositories.EfRoleRepository>();
 
+// Library repositories
+builder.Services.AddScoped<Unison.LibraryManagement.Domain.Repositories.IBookRepository, Unison.LibraryManagement.Infrastructure.Repositories.EfBookRepository>();
+builder.Services.AddScoped<Unison.LibraryManagement.Domain.Repositories.IBookCopyRepository, Unison.LibraryManagement.Infrastructure.Repositories.EfBookCopyRepository>();
+builder.Services.AddScoped<Unison.LibraryManagement.Domain.Repositories.ILoanRepository, Unison.LibraryManagement.Infrastructure.Repositories.EfLoanRepository>();
+builder.Services.AddScoped<Unison.LibraryManagement.Domain.Repositories.IFineRepository, Unison.LibraryManagement.Infrastructure.Repositories.EfFineRepository>();
+
 // Password hasher
 builder.Services.AddSingleton<Unison.LibraryManagement.Application.Security.IPasswordHasher, Unison.LibraryManagement.Infrastructure.Security.PasswordHasher>();
 
 // Application handlers
 builder.Services.AddScoped<Unison.LibraryManagement.Application.Handlers.RegisterUserHandler>();
 builder.Services.AddScoped<Unison.LibraryManagement.Application.Handlers.AssignRoleHandler>();
+builder.Services.AddScoped<Unison.LibraryManagement.Application.Handlers.CreateBookHandler>();
+builder.Services.AddScoped<Unison.LibraryManagement.Application.Handlers.BorrowBookHandler>();
+builder.Services.AddScoped<Unison.LibraryManagement.Application.Handlers.ReturnBookHandler>();
+
+// Library services
+// book search handler
+builder.Services.AddScoped<Unison.LibraryManagement.Application.Handlers.SearchBooksHandler>();
+builder.Services.AddScoped<Unison.LibraryManagement.Application.Handlers.GetUserLoansHandler>();
+builder.Services.AddScoped<Unison.LibraryManagement.Application.Handlers.GetOverdueLoansHandler>();
+builder.Services.AddScoped<Unison.LibraryManagement.Application.Handlers.GetOutstandingFinesHandler>();
+// keep fine handler/service
+builder.Services.AddScoped<Unison.LibraryManagement.Application.Services.IFineService, Unison.LibraryManagement.Application.Services.FineService>();
 
 // Authentication
 builder.Services.AddAuthentication("Basic").AddScheme<Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions, Unison.LibraryManagement.Api.Auth.BasicAuthenticationHandler>("Basic", null);
