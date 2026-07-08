@@ -36,6 +36,9 @@ namespace Unison.LibraryManagement.Infrastructure.Repositories
 
         public async Task<PagedResult<Book>> SearchAsync(string query, int page, int pageSize)
         {
+            page = Math.Max(1, page);
+            pageSize = Math.Clamp(pageSize, 1, 100);
+
             var q = _db.Books.AsQueryable();
             if (!string.IsNullOrWhiteSpace(query))
             {

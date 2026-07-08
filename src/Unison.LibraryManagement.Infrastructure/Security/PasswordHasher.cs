@@ -16,8 +16,7 @@ namespace Unison.LibraryManagement.Infrastructure.Security
         public PasswordHashResult Hash(string password)
         {
             var salt = RandomNumberGenerator.GetBytes(16);
-            using var pbkdf2 = new Rfc2898DeriveBytes(password, salt, _iterations, HashAlgorithmName.SHA256);
-            var hash = pbkdf2.GetBytes(32);
+            var hash = Rfc2898DeriveBytes.Pbkdf2(password, salt, _iterations, HashAlgorithmName.SHA256, 32);
 
             return new PasswordHashResult(Convert.ToBase64String(hash), Convert.ToBase64String(salt), _iterations);
         }
@@ -26,8 +25,7 @@ namespace Unison.LibraryManagement.Infrastructure.Security
         {
             var salt = Convert.FromBase64String(saltBase64);
             var expected = Convert.FromBase64String(hashBase64);
-            using var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations, HashAlgorithmName.SHA256);
-            var actual = pbkdf2.GetBytes(expected.Length);
+            var actual = Rfc2898DeriveBytes.Pbkdf2(password, salt, iterations, HashAlgorithmName.SHA256, expected.Length);
             return CryptographicOperations.FixedTimeEquals(actual, expected);
         }
     }

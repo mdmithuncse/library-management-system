@@ -1,14 +1,11 @@
-using System;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.Options;
 using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Unison.LibraryManagement.Domain.Repositories;
 using Unison.LibraryManagement.Application.Security;
+using Unison.LibraryManagement.Domain.Repositories;
 
 namespace Unison.LibraryManagement.Api.Auth
 {
@@ -21,10 +18,9 @@ namespace Unison.LibraryManagement.Api.Auth
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger,
             UrlEncoder encoder,
-            ISystemClock clock,
             IUserRepository users,
             IPasswordHasher hasher)
-            : base(options, logger, encoder, clock)
+            : base(options, logger, encoder)
         {
             _users = users;
             _hasher = hasher;
@@ -37,7 +33,7 @@ namespace Unison.LibraryManagement.Api.Auth
 
             try
             {
-                var header = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
+                var header = AuthenticationHeaderValue.Parse(Request.Headers.Authorization.ToString());
                 if (!"Basic".Equals(header.Scheme, StringComparison.OrdinalIgnoreCase))
                     return AuthenticateResult.NoResult();
 

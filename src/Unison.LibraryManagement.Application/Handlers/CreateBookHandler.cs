@@ -21,6 +21,7 @@ namespace Unison.LibraryManagement.Application.Handlers
         {
             if (string.IsNullOrWhiteSpace(command.ISBN)) throw new ArgumentException("ISBN required");
             if (string.IsNullOrWhiteSpace(command.Title)) throw new ArgumentException("Title required");
+            if (command.TotalCopies <= 0) throw new ArgumentException("TotalCopies must be greater than zero");
 
             var existing = await _books.GetByIsbnAsync(command.ISBN);
             if (existing != null) throw new InvalidOperationException("Book with same ISBN exists");

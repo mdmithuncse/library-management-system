@@ -47,6 +47,7 @@ builder.Services.AddScoped<Unison.LibraryManagement.Domain.Repositories.IBookRep
 builder.Services.AddScoped<Unison.LibraryManagement.Domain.Repositories.IBookCopyRepository, Unison.LibraryManagement.Infrastructure.Repositories.EfBookCopyRepository>();
 builder.Services.AddScoped<Unison.LibraryManagement.Domain.Repositories.ILoanRepository, Unison.LibraryManagement.Infrastructure.Repositories.EfLoanRepository>();
 builder.Services.AddScoped<Unison.LibraryManagement.Domain.Repositories.IFineRepository, Unison.LibraryManagement.Infrastructure.Repositories.EfFineRepository>();
+builder.Services.AddScoped<Unison.LibraryManagement.Domain.Repositories.IUnitOfWork, Unison.LibraryManagement.Infrastructure.Persistence.LibraryManagementUnitOfWork>();
 
 // Password hasher
 builder.Services.AddSingleton<Unison.LibraryManagement.Application.Security.IPasswordHasher, Unison.LibraryManagement.Infrastructure.Security.PasswordHasher>();
@@ -75,6 +76,7 @@ var app = builder.Build();
 
 // Process forwarded headers early
 app.UseForwardedHeaders();
+app.UseMiddleware<Unison.LibraryManagement.Api.ExceptionHandlingMiddleware>();
 
 // Seed admin user if environment variables provided
 await Unison.LibraryManagement.Api.Startup.AdminSeeder.SeedAsync(app.Services);

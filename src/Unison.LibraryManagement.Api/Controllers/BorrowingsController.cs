@@ -1,9 +1,6 @@
-using System;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Unison.LibraryManagement.Application.Dtos;
-using Unison.LibraryManagement.Domain.Repositories;
 
 namespace Unison.LibraryManagement.Api.Controllers
 {
