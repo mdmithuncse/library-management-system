@@ -1,5 +1,3 @@
-using System;
-
 namespace Unison.LibraryManagement.Domain.Entities
 {
     public class UserRole

@@ -1,7 +1,3 @@
-using System;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Unison.LibraryManagement.Application.Security;
 using Unison.LibraryManagement.Domain.Entities;
 using Unison.LibraryManagement.Domain.Repositories;

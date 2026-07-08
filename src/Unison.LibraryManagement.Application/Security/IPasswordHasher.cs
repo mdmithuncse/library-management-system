@@ -1,5 +1,3 @@
-using System.Threading.Tasks;
-
 namespace Unison.LibraryManagement.Application.Security
 {
     public record PasswordHashResult(string HashBase64, string SaltBase64, int Iterations);

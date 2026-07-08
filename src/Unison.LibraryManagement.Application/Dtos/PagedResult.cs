@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Unison.LibraryManagement.Application.Dtos
 {
     public class PagedResult<T>

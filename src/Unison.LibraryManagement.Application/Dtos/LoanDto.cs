@@ -1,5 +1,3 @@
-using System;
-
 namespace Unison.LibraryManagement.Application.Dtos
 {
     public class LoanDto

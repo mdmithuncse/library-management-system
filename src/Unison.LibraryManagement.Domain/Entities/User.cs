@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace Unison.LibraryManagement.Domain.Entities
 {
     public class User
