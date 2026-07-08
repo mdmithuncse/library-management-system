@@ -1,6 +1,12 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/Unison.LibraryManagement.Api/Unison.LibraryManagement.Api.csproj" Id="41b6c497-2857-41c2-9c05-abba8f13718d" />
+    <Project Path="src/Unison.LibraryManagement.Application/Unison.LibraryManagement.Application.csproj" Id="cf100263-917a-4e54-ab46-45821955c095" />
+    <Project Path="src/Unison.LibraryManagement.Domain/Unison.LibraryManagement.Domain.csproj" Id="677d3715-cba1-4a61-879d-e5f190b80fa7" />
+    <Project Path="src/Unison.LibraryManagement.Infrastructure/Unison.LibraryManagement.Infrastructure.csproj" Id="c01b364c-3a31-4449-80c7-7d434bde5f56" />
   </Folder>
-  <Folder Name="/tests/" />
+  <Folder Name="/tests/">
+    <Project Path="src/Unison.LibraryManagement.IntegrationTests/Unison.LibraryManagement.IntegrationTests.csproj" Id="bbf20cdb-485e-48bb-9ab1-b6b8e12a6599" />
+    <Project Path="tests/Unison.LibraryManagement.Application.Tests/Unison.LibraryManagement.Application.Tests.csproj" Id="864a53a1-0c29-4c88-9e6a-359f0500cafd" />
+  </Folder>
 </Solution>
