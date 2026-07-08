@@ -33,7 +33,7 @@ builder.Services.Configure<ForwardedHeadersOptions>(opts =>
 
 // Register DbContext and application services
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? "Server=127.0.0.1,1433;User Id=sa;Password=YourStrong!Passw0rd;Database=LibraryManagementDb;TrustServerCertificate=True;";
+    ?? throw new InvalidOperationException("ConnectionStrings:DefaultConnection is required.");
 
 builder.Services.AddDbContext<Unison.LibraryManagement.Infrastructure.Persistence.LibraryManagementDbContext>(options =>
     options.UseSqlServer(connectionString));
